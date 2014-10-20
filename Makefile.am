@@ -1,0 +1,2 @@
+SUBDIRS = ch-utils
+ACLOCAL_AMFLAGS = -I m4
