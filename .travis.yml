@@ -2,6 +2,10 @@ language: c
 
 compiler:
   - gcc
+  
+before_script:
+  - git clone https://github.com/corehacker/ch-pal.git
+  - cd ch-pal && autoreconf --install && ./configure && make && sudo make install
 
 script: |
   autoreconf --install
