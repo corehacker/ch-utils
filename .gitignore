@@ -27,3 +27,15 @@
 *.i*86
 *.x86_64
 *.hex
+/.cproject
+/.project
+
+ch-utils/.deps
+ch-utils/.libs
+Makefile*
+stamp-h1
+libtool
+config.h
+config.log
+config.status
+.settings
