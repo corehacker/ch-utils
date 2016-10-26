@@ -134,8 +134,8 @@ am__installdirs = "$(DESTDIR)$(libdir)" "$(DESTDIR)$(includedir)"
 LTLIBRARIES = $(lib_LTLIBRARIES)
 libch_utils_la_LIBADD =
 am_libch_utils_la_OBJECTS = hashmap.lo hashmap_private.lo \
-	hashmap_private_cbks.lo list.lo list_private.lo msgq.lo q.lo \
-	sock_utils.lo task.lo
+	hashmap_private_cbks.lo list.lo list_private.lo lru_private.lo \
+	lru.lo msgq.lo q.lo sock_utils.lo task.lo
 libch_utils_la_OBJECTS = $(am_libch_utils_la_OBJECTS)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
@@ -325,7 +325,7 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AM_CPPFLAGS = -Ich-utils
 lib_LTLIBRARIES = libch-utils.la
-libch_utils_la_SOURCES = hashmap.c  hashmap_private.c hashmap_private_cbks.c  list.c list_private.c  msgq.c  q.c  sock_utils.c  task.c gentree_private.h  hashmap_private.h hashmap_private_cbks.h  list_private.h  msgq_private.h  q_private.h  sock_utils_private.h  task_private.h
+libch_utils_la_SOURCES = hashmap.c  hashmap_private.c hashmap_private_cbks.c  list.c list_private.c lru_private.c lru.c  msgq.c  q.c  sock_utils.c  task.c gentree_private.h  hashmap_private.h hashmap_private_cbks.h  list_private.h lru_private.h  msgq_private.h  q_private.h  sock_utils_private.h  task_private.h
 libch_utils_adir = $(includedir)/ch-utils
 nobase_include_HEADERS = ch-utils/exp_hashmap.h  ch-utils/exp_list.h  ch-utils/exp_msgq.h  ch-utils/exp_q.h  ch-utils/exp_sock_utils.h  ch-utils/exp_task.h ch-utils/exp_lru.h
 all: all-am
@@ -411,6 +411,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/hashmap_private_cbks.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/list.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/list_private.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lru.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lru_private.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/msgq.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/q.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sock_utils.Plo@am__quote@
