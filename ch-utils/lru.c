@@ -173,6 +173,28 @@ LRU_RET_E lru_delete (
    return e_ret;
 }
 
+LRU_RET_E lru_delete_all (
+   LRU_HDL hl_lru_hdl)
+{
+   LRU_RET_E e_ret = eLRU_RET_FAILURE;
+   HM_RET_E e_hm_ret = eHM_RET_FAILURE;
+   LRU_CTXT_X *px_ctxt = (LRU_CTXT_X *) hl_lru_hdl;
+
+   if (NULL == hl_lru_hdl) {
+      e_ret = eLRU_RET_INVALID_ARGS;
+   }
+   else {
+      e_hm_ret = hm_delete_all_nodes(px_ctxt->hl_hm);
+      if (eHM_RET_SUCCESS != e_hm_ret) {
+         e_ret = eLRU_RET_RESOURCE_FAILURE;
+      }
+      else {
+         e_ret = eLRU_RET_SUCCESS;
+      }
+   }
+   return e_ret;
+}
+
 void lru_print (
    LRU_HDL hl_lru_hdl)
 {

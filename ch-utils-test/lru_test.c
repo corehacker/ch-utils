@@ -147,7 +147,7 @@ int main ()
             x_node_data.x_hm_node.e_hm_key_type = eHM_KEY_TYPE_STRING;
             x_node_data.x_hm_node.u_hm_key.puc_str_key = uca_str_buf;
             e_lru_ret = lru_delete (hl_lru_hdl, &x_node_data);
-            if (eHM_RET_SUCCESS == e_lru_ret)
+            if (eLRU_RET_SUCCESS == e_lru_ret)
             {
                LRU_TEST_LOG("Key \"%s\" Deleted", uca_str_buf);
             }
@@ -161,7 +161,8 @@ int main ()
          }
          case 4:
          {
-
+            e_lru_ret = lru_delete_all (hl_lru_hdl);
+            lru_print (hl_lru_hdl);
           break;
          }
          case 5:

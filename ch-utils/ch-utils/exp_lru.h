@@ -109,6 +109,9 @@ LRU_RET_E lru_delete (
    LRU_HDL hl_lru_hdl,
    LRU_NODE_DATA_X *px_entry);
 
+LRU_RET_E lru_delete_all (
+   LRU_HDL hl_lru_hdl);
+
 void lru_print (
    LRU_HDL hl_lru_hdl);
 
