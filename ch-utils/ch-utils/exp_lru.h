@@ -72,20 +72,31 @@ typedef struct _LRU_INIT_PARAMS_X
    uint32_t ui_max_size_bytes;
 } LRU_INIT_PARAMS_X;
 
-typedef struct _LRU_NODE_DATA_X
-{
-   void *p_data;
-
-   uint32_t ui_data_size;
-} LRU_NODE_DATA_X;
+typedef HM_NODE_DATA_X LRU_NODE_DATA_X;
 
 /***************************** FUNCTION PROTOTYPES ****************************/
-LRU_RET_E lru_create (
+LRU_RET_E lru_init (
    LRU_HDL *phl_lru_hdl,
    LRU_INIT_PARAMS_X *px_init_params);
 
-LRU_RET_E lru_delete (
+LRU_RET_E lru_deinit (
    LRU_HDL hl_lru_hdl);
+
+LRU_RET_E lru_set (
+   LRU_HDL hl_lru_hdl,
+   LRU_NODE_DATA_X *px_entry);
+
+LRU_RET_E lru_has (
+   LRU_HDL hl_lru_hdl,
+   LRU_NODE_DATA_X *px_entry);
+
+LRU_RET_E lru_get (
+   LRU_HDL hl_lru_hdl,
+   LRU_NODE_DATA_X *px_entry);
+
+LRU_RET_E lru_delete (
+   LRU_HDL hl_lru_hdl,
+   LRU_NODE_DATA_X *px_entry);
 
 #ifdef   __cplusplus
 }

@@ -32,6 +32,7 @@
 
 /********************************** INCLUDES **********************************/
 #include <ch-pal/exp_pal.h>
+#include <ch-utils/exp_hashmap.h>
 #include <ch-utils/exp_lru.h>
 
 /********************************* CONSTANTS **********************************/
@@ -74,7 +75,7 @@ int main ()
    LRU_TEST_LOG ("pal_env_init success");
 
    x_lru_init_params.ui_max_size_bytes = (1 * 1024 * 1024);
-   e_lru_ret = lru_create(&hl_lru_hdl, &x_lru_init_params);
+   e_lru_ret = lru_init(&hl_lru_hdl, &x_lru_init_params);
    if ((eLRU_RET_SUCCESS != e_lru_ret) || (NULL == hl_lru_hdl)) {
       LRU_TEST_LOG ("lru_create failed: %d, %p", e_lru_ret, hl_lru_hdl);
       goto CLEAN_RETURN;
@@ -84,7 +85,7 @@ int main ()
 
 CLEAN_RETURN:
    if (NULL != hl_lru_hdl) {
-      lru_delete(hl_lru_hdl);
+      lru_deinit(hl_lru_hdl);
    }
    if (true == b_pal_init)
    {

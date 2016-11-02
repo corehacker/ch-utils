@@ -85,8 +85,11 @@ LRU_RET_E lru_destroy_resources (
 
    if (px_ctxt)
    {
-
+      if (NULL != px_ctxt->hl_hm) {
+         (void) hm_delete(px_ctxt->hl_hm);
+      }
    }
 
+   e_ret = eLRU_RET_SUCCESS;
    return e_ret;
 }

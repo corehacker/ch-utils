@@ -48,7 +48,7 @@
 /************************ STATIC FUNCTION PROTOTYPES **************************/
 
 /****************************** LOCAL FUNCTIONS *******************************/
-LRU_RET_E lru_create (
+LRU_RET_E lru_init (
    LRU_HDL *phl_lru_hdl,
    LRU_INIT_PARAMS_X *px_init_params)
 {
@@ -80,7 +80,7 @@ LRU_RET_E lru_create (
    return e_ret;
 }
 
-LRU_RET_E lru_delete (
+LRU_RET_E lru_deinit (
    LRU_HDL hl_lru_hdl)
 {
    LRU_CTXT_X *px_ctxt = NULL;
@@ -89,4 +89,40 @@ LRU_RET_E lru_delete (
 
    lru_destroy_resources(px_ctxt);
    return eLRU_RET_SUCCESS;
+}
+
+LRU_RET_E lru_set (
+   LRU_HDL hl_lru_hdl,
+   LRU_NODE_DATA_X *px_entry)
+{
+   LRU_RET_E e_ret = eLRU_RET_FAILURE;
+
+   return e_ret;
+}
+
+LRU_RET_E lru_has (
+   LRU_HDL hl_lru_hdl,
+   LRU_NODE_DATA_X *px_entry)
+{
+   LRU_RET_E e_ret = eLRU_RET_FAILURE;
+
+   return e_ret;
+}
+
+LRU_RET_E lru_get (
+   LRU_HDL hl_lru_hdl,
+   LRU_NODE_DATA_X *px_entry)
+{
+   LRU_RET_E e_ret = eLRU_RET_FAILURE;
+
+   return e_ret;
+}
+
+LRU_RET_E lru_delete (
+   LRU_HDL hl_lru_hdl,
+   LRU_NODE_DATA_X *px_entry)
+{
+   LRU_RET_E e_ret = eLRU_RET_FAILURE;
+
+   return e_ret;
 }
