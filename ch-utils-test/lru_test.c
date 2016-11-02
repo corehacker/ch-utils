@@ -60,6 +60,8 @@ int main ()
    LRU_RET_E e_lru_ret = eLRU_RET_FAILURE;
    LRU_HDL hl_lru_hdl = NULL;
    LRU_INIT_PARAMS_X x_lru_init_params = {0};
+   LRU_NODE_DATA_X x_node_data = {eHM_KEY_TYPE_INVALID};
+   uint8_t uca_str_buf[1024] = {0};
 
    x_logger_param.b_enable_console_logging = true;
    x_logger_param.e_level = eLOG_LEVEL_HIGH;
@@ -82,6 +84,19 @@ int main ()
    }
    LRU_TEST_LOG ("lru_create success: %d, %p", e_lru_ret, hl_lru_hdl);
 
+   (void) pal_memset(&x_node_data, 0x00, sizeof(x_node_data));
+   x_node_data.e_hm_key_type = eHM_KEY_TYPE_STRING;
+   x_node_data.u_hm_key.puc_str_key = "test key";
+   x_node_data.p_data = malloc (100);
+   x_node_data.ui_data_size = 100;
+   e_lru_ret = lru_set(hl_lru_hdl, &x_node_data);
+   if (eLRU_RET_SUCCESS != e_lru_ret) {
+      LRU_TEST_LOG ("lru_set failed: %d, %p", e_lru_ret, hl_lru_hdl);
+   }
+   else {
+      LRU_TEST_LOG ("lru_set success: %d, %p", e_lru_ret, hl_lru_hdl);
+      lru_print (hl_lru_hdl);
+   }
 
 CLEAN_RETURN:
    if (NULL != hl_lru_hdl) {

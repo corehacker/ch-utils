@@ -57,6 +57,10 @@ typedef enum _LRU_RET_E
 
    eLRU_RET_RESOURCE_FAILURE,
 
+   eLRU_RET_HM_NODE_FOUND,
+
+   eLRU_RET_HM_NODE_NOT_FOUND,
+
    eLRU_RET_EMPTY,
 
    eLRU_RET_FULL,
@@ -97,6 +101,9 @@ LRU_RET_E lru_get (
 LRU_RET_E lru_delete (
    LRU_HDL hl_lru_hdl,
    LRU_NODE_DATA_X *px_entry);
+
+void lru_print (
+   LRU_HDL hl_lru_hdl);
 
 #ifdef   __cplusplus
 }

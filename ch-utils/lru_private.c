@@ -74,6 +74,7 @@ LRU_RET_E lru_create_resources (
    else
    {
       LRU_LOG_LOW("hm_create success: %d", e_hm_ret);
+      e_ret = eLRU_RET_SUCCESS;
    }
    return e_ret;
 }
