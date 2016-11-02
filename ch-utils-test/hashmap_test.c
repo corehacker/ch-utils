@@ -160,7 +160,7 @@ int main ()
    while (1)
    {
       printf ("Commands:\n\t1. Add\n\t2. Search\n\t3. Delete\n\t4. Sort"
-    		  "\n\t5. Delete All\n\t6. Exit\n"
+               "\n\t5. Delete All\n\t6. Exit\n"
                "Enter Command: ");
       fflush (stdout);
 

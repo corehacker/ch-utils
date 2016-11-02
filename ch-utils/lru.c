@@ -129,10 +129,10 @@ LRU_RET_E lru_has (
    else {
       e_hm_ret = hm_search_node (px_ctxt->hl_hm, (HM_NODE_DATA_X *) px_entry);
       if (eHM_RET_HM_NODE_FOUND != e_hm_ret) {
-         e_ret = eLRU_RET_HM_NODE_NOT_FOUND;
+         e_ret = eLRU_RET_NODE_NOT_FOUND;
       }
       else {
-         e_ret = eLRU_RET_HM_NODE_FOUND;
+         e_ret = eLRU_RET_NODE_FOUND;
       }
    }
    return e_ret;
