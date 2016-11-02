@@ -56,6 +56,9 @@ int main ()
    PAL_RET_E e_pal_ret = ePAL_RET_FAILURE;
    bool b_pal_init = false;
    PAL_LOGGER_INIT_PARAMS_X x_logger_param = { false };
+   LRU_RET_E e_lru_ret = eLRU_RET_FAILURE;
+   LRU_HDL hl_lru_hdl = NULL;
+   LRU_INIT_PARAMS_X x_lru_init_params = {0};
 
    x_logger_param.b_enable_console_logging = true;
    x_logger_param.e_level = eLOG_LEVEL_HIGH;
@@ -70,7 +73,19 @@ int main ()
    b_pal_init = true;
    LRU_TEST_LOG ("pal_env_init success");
 
+   x_lru_init_params.ui_max_size_bytes = (1 * 1024 * 1024);
+   e_lru_ret = lru_create(&hl_lru_hdl, &x_lru_init_params);
+   if ((eLRU_RET_SUCCESS != e_lru_ret) || (NULL == hl_lru_hdl)) {
+      LRU_TEST_LOG ("lru_create failed: %d, %p", e_lru_ret, hl_lru_hdl);
+      goto CLEAN_RETURN;
+   }
+   LRU_TEST_LOG ("lru_create success: %d, %p", e_lru_ret, hl_lru_hdl);
+
+
 CLEAN_RETURN:
+   if (NULL != hl_lru_hdl) {
+      lru_delete(hl_lru_hdl);
+   }
    if (true == b_pal_init)
    {
       e_pal_ret = pal_env_deinit();

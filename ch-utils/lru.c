@@ -49,13 +49,13 @@
 
 /****************************** LOCAL FUNCTIONS *******************************/
 LRU_RET_E lru_create (
-   LRU_HDL *phl_list_hdl,
+   LRU_HDL *phl_lru_hdl,
    LRU_INIT_PARAMS_X *px_init_params)
 {
    LRU_RET_E e_ret = eLRU_RET_FAILURE;
    LRU_CTXT_X *px_ctxt = NULL;
 
-   if ((NULL == phl_list_hdl) || (NULL == px_init_params))
+   if ((NULL == phl_lru_hdl) || (NULL == px_init_params))
    {
       LRU_LOG_LOW("Invalid arguments: %p", px_init_params);
       e_ret = eLRU_RET_INVALID_ARGS;
@@ -70,9 +70,23 @@ LRU_RET_E lru_create (
       else {
          e_ret = lru_create_resources (px_ctxt, px_init_params);
          if (eLRU_RET_SUCCESS == e_ret) {
-            *phl_list_hdl = (LRU_HDL) px_ctxt;
+            *phl_lru_hdl = (LRU_HDL) px_ctxt;
+         }
+         else {
+            LRU_LOG_LOW("lru_create_resources failed: %d", e_ret);
          }
       }
    }
    return e_ret;
+}
+
+LRU_RET_E lru_delete (
+   LRU_HDL hl_lru_hdl)
+{
+   LRU_CTXT_X *px_ctxt = NULL;
+
+   px_ctxt = (LRU_CTXT_X *) hl_lru_hdl;
+
+   lru_destroy_resources(px_ctxt);
+   return eLRU_RET_SUCCESS;
 }

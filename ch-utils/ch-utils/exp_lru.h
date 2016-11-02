@@ -81,11 +81,11 @@ typedef struct _LRU_NODE_DATA_X
 
 /***************************** FUNCTION PROTOTYPES ****************************/
 LRU_RET_E lru_create (
-   LRU_HDL *phl_list_hdl,
+   LRU_HDL *phl_lru_hdl,
    LRU_INIT_PARAMS_X *px_init_params);
 
 LRU_RET_E lru_delete (
-   LRU_HDL hl_list_hdl);
+   LRU_HDL hl_lru_hdl);
 
 #ifdef   __cplusplus
 }

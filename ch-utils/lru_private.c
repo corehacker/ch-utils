@@ -59,14 +59,21 @@ LRU_RET_E lru_create_resources (
    pal_memmove(&(px_ctxt->x_init_params), px_init_params,
                sizeof (px_ctxt->x_init_params));
 
+   x_hm_init_params.b_maintain_linked_list = true;
+   x_hm_init_params.b_thread_safe = false;
+   x_hm_init_params.ui_hm_table_size = (1024);
+   x_hm_init_params.e_hm_key_type = eHM_KEY_TYPE_STRING;
+   x_hm_init_params.ui_linked_list_flags |= eHM_LINKED_LIST_FLAGS_BM_UNSORTED;
+   x_hm_init_params.ui_thread_safe_flags |= eHM_THREAD_SAFE_FLAGS_BM_MAP_LEVEL;
    e_hm_ret = hm_create(&(px_ctxt->hl_hm), &x_hm_init_params);
    if (eHM_RET_SUCCESS != e_hm_ret)
    {
+      LRU_LOG_LOW("hm_create failed: %d", e_hm_ret);
       e_ret = eLRU_RET_RESOURCE_FAILURE;
    }
    else
    {
-
+      LRU_LOG_LOW("hm_create success: %d", e_hm_ret);
    }
    return e_ret;
 }
@@ -75,6 +82,11 @@ LRU_RET_E lru_destroy_resources (
    LRU_CTXT_X *px_ctxt)
 {
    LRU_RET_E e_ret = eLRU_RET_FAILURE;
+
+   if (px_ctxt)
+   {
+
+   }
 
    return e_ret;
 }
