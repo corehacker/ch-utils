@@ -111,10 +111,10 @@ int main ()
          case 1:
          {
             (void) pal_memset(&x_node_data, 0x00, sizeof(x_node_data));
-            x_node_data.e_hm_key_type = eHM_KEY_TYPE_STRING;
-            x_node_data.u_hm_key.puc_str_key = uca_str_buf;
-            x_node_data.p_data = malloc (100);
-            x_node_data.ui_data_size = 100;
+            x_node_data.x_hm_node.e_hm_key_type = eHM_KEY_TYPE_STRING;
+            x_node_data.x_hm_node.u_hm_key.puc_str_key = uca_str_buf;
+            x_node_data.x_hm_node.p_data = malloc (100);
+            x_node_data.x_hm_node.ui_data_size = 100;
             e_lru_ret = lru_set (hl_lru_hdl, &x_node_data);
             if (eLRU_RET_SUCCESS != e_lru_ret) {
                LRU_TEST_LOG ("lru_set failed: %d, %p", e_lru_ret, hl_lru_hdl);
@@ -128,12 +128,12 @@ int main ()
          case 2:
          {
             (void) pal_memset(&x_node_data, 0x00, sizeof(x_node_data));
-            x_node_data.e_hm_key_type = eHM_KEY_TYPE_STRING;
-            x_node_data.u_hm_key.puc_str_key = uca_str_buf;
+            x_node_data.x_hm_node.e_hm_key_type = eHM_KEY_TYPE_STRING;
+            x_node_data.x_hm_node.u_hm_key.puc_str_key = uca_str_buf;
             e_lru_ret = lru_has (hl_lru_hdl, &x_node_data);
             if (eLRU_RET_NODE_FOUND == e_lru_ret)
             {
-               LRU_TEST_LOG("Key \"%s\" Found: %p", uca_str_buf, x_node_data.p_data);
+               LRU_TEST_LOG("Key \"%s\" Found: %p", uca_str_buf, x_node_data.x_hm_node.p_data);
             }
             else
             {
@@ -144,8 +144,8 @@ int main ()
          case 3:
          {
             (void) pal_memset(&x_node_data, 0x00, sizeof(x_node_data));
-            x_node_data.e_hm_key_type = eHM_KEY_TYPE_STRING;
-            x_node_data.u_hm_key.puc_str_key = uca_str_buf;
+            x_node_data.x_hm_node.e_hm_key_type = eHM_KEY_TYPE_STRING;
+            x_node_data.x_hm_node.u_hm_key.puc_str_key = uca_str_buf;
             e_lru_ret = lru_delete (hl_lru_hdl, &x_node_data);
             if (eHM_RET_SUCCESS == e_lru_ret)
             {

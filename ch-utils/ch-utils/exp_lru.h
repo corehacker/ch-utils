@@ -76,7 +76,14 @@ typedef struct _LRU_INIT_PARAMS_X
    uint32_t ui_max_size_bytes;
 } LRU_INIT_PARAMS_X;
 
-typedef HM_NODE_DATA_X LRU_NODE_DATA_X;
+typedef struct _LRU_NODE_DATA_X
+{
+   HM_NODE_DATA_X x_hm_node;
+
+   uint64_t ui_created;
+
+   uint64_t ui_accessed;
+} LRU_NODE_DATA_X;
 
 /***************************** FUNCTION PROTOTYPES ****************************/
 LRU_RET_E lru_init (

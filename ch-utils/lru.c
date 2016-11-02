@@ -103,6 +103,8 @@ LRU_RET_E lru_set (
       e_ret = eLRU_RET_INVALID_ARGS;
    }
    else {
+      px_entry->ui_created = pal_get_system_time_ns ();
+      px_entry->ui_accessed = pal_get_system_time_ns ();
       e_hm_ret = hm_add_node (px_ctxt->hl_hm, (HM_NODE_DATA_X *) px_entry);
       if (eHM_RET_SUCCESS != e_hm_ret) {
          e_ret = eLRU_RET_RESOURCE_FAILURE;
