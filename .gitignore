@@ -39,3 +39,8 @@ config.h
 config.log
 config.status
 .settings
+*.log
+*.user
+*.ipch
+*.db
+win/win32/vs11/ch-utils-static/.vs/ch-utils-static/v15/.suo

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -14,18 +14,19 @@
     <ProjectGuid>{C557D8B2-AE3B-477A-81C2-EC8F6F613E02}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>chutilsstatic</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -77,7 +78,9 @@
   <ItemGroup>
     <ClCompile Include="..\..\..\..\ch-utils\hashmap.c" />
     <ClCompile Include="..\..\..\..\ch-utils\hashmap_private.c" />
+    <ClCompile Include="..\..\..\..\ch-utils\hashmap_private_cbks.c" />
     <ClCompile Include="..\..\..\..\ch-utils\list.c" />
+    <ClCompile Include="..\..\..\..\ch-utils\list_private.c" />
     <ClCompile Include="..\..\..\..\ch-utils\msgq.c" />
     <ClCompile Include="..\..\..\..\ch-utils\q.c" />
     <ClCompile Include="..\..\..\..\ch-utils\sock_utils.c" />
@@ -92,6 +95,7 @@
     <ClInclude Include="..\..\..\..\ch-utils\ch-utils\exp_task.h" />
     <ClInclude Include="..\..\..\..\ch-utils\gentree_private.h" />
     <ClInclude Include="..\..\..\..\ch-utils\hashmap_private.h" />
+    <ClInclude Include="..\..\..\..\ch-utils\hashmap_private_cbks.h" />
     <ClInclude Include="..\..\..\..\ch-utils\list_private.h" />
     <ClInclude Include="..\..\..\..\ch-utils\msgq_private.h" />
     <ClInclude Include="..\..\..\..\ch-utils\q_private.h" />
