@@ -44,3 +44,6 @@ config.status
 *.ipch
 *.db
 win/win32/vs11/ch-utils-static/.vs/ch-utils-static/v15/.suo
+*.tlog
+*.pdb
+*.idb

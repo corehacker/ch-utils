@@ -326,7 +326,7 @@ LIST_RET_E list_for_all_nodes (
 
    if ((NULL == px_list_ctxt->px_head) && (NULL == px_list_ctxt->px_tail))
    {
-      LIST_LOG_HIGH("List Empty: %d", px_list_ctxt->ui_node_count);
+      // LIST_LOG_HIGH("List Empty: %d", px_list_ctxt->ui_node_count);
       e_error = eLIST_RET_LIST_EMPTY;
       goto CLEAN_RETURN;
    }
